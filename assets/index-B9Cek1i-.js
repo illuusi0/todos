@@ -192,6 +192,12 @@ Error generating stack: `+o.message+`
   text-decoration: ${e=>e.$completed?"line-through":"none"};
   transition: color 0.2s;
   font-weight: 300;
+  cursor: pointer;
+  user-select: none;
+  
+  &:hover {
+    color: ${e=>e.$completed?"#c0c0c0":"#2d2d2d"};
+  }
 `,qm=G(Ju)`
   display: none;
   color: #cc9a9a;
@@ -210,7 +216,7 @@ Error generating stack: `+o.message+`
   &:after {
     content: '×';
   }
-`,bm=({todo:e,onToggle:t,onDelete:n})=>D.jsxs(sd,{"data-testid":"todo-item",children:[D.jsx(Ym,{checked:e.completed,onChange:()=>t(e.id),"data-testid":"todo-checkbox"}),D.jsx(Jm,{$completed:e.completed,children:e.text}),D.jsx(qm,{onClick:()=>n(e.id),"data-testid":"todo-delete-button","aria-label":"Delete todo"})]}),Ea=G(Wm)``,ev=G.div`
+`,bm=({todo:e,onToggle:t,onDelete:n})=>{const r=()=>t(e.id);return D.jsxs(sd,{"data-testid":"todo-item",children:[D.jsx(Ym,{checked:e.completed,onChange:r,"data-testid":"todo-checkbox"}),D.jsx(Jm,{$completed:e.completed,onClick:r,"data-testid":"todo-text",children:e.text}),D.jsx(qm,{onClick:()=>n(e.id),"data-testid":"todo-delete-button","aria-label":"Delete todo"})]})},Ea=G(Wm)``,ev=G.div`
   text-align: center;
   padding: 2rem 1rem;
   color: #b4b4b4;
