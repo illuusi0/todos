@@ -8,6 +8,9 @@ export default {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.[jt]sx?$',
+  testMatch: [
+    '<rootDir>/src/__tests__/**/*.test.tsx',
+    '<rootDir>/src/__tests__/**/*.test.ts'
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 }; 

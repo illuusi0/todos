@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import TodoFilter from './TodoFilter';
+import TodoFilter from '../../components/TodoFilter/TodoFilter';
 import type { FilterType } from '../../types/todo';
 
 describe('TodoFilter', () => {

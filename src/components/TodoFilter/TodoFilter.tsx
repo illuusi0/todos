@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import type { FilterType } from '../../types/todo';
+import { FilterButton } from '../../shared/ui';
+import { FilterContainer, ClearButton } from './styles';
 
 interface TodoFilterProps {
   currentFilter: FilterType;
@@ -8,43 +9,6 @@ interface TodoFilterProps {
   hasCompletedTodos: boolean;
   onClearCompleted: () => void;
 }
-
-const FilterContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const FilterButton = styled.button<{ $active: boolean }>`
-  background: none;
-  border: none;
-  color: ${props => props.$active ? '#4d4d4d' : '#777'};
-  cursor: pointer;
-  font-size: inherit;
-  padding: 3px 7px;
-  border: 1px solid ${props => props.$active ? '#efd5d5' : 'transparent'};
-  border-radius: 3px;
-  font-weight: ${props => props.$active ? '400' : '300'};
-
-  &:hover {
-    border-color: #efd5d5;
-  }
-`;
-
-const ClearButton = styled.button`
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  font-size: inherit;
-  padding: 3px 7px;
-  margin-left: 0.5rem;
-  font-weight: 300;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 export const TodoFilter: React.FC<TodoFilterProps> = ({
   currentFilter,

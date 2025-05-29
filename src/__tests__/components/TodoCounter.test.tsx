@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import TodoCounter from './TodoCounter';
+import TodoCounter from '../../components/TodoCounter/TodoCounter';
 
 describe('TodoCounter', () => {
   it('displays correct count for multiple items', () => {

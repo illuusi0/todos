@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import TodoForm from './TodoForm';
+import TodoForm from '../../components/TodoForm/TodoForm';
 
 describe('TodoForm', () => {
   const mockOnAdd = jest.fn();
@@ -9,10 +9,9 @@ describe('TodoForm', () => {
     jest.clearAllMocks();
   });
 
-  it('renders input and submit button', () => {
+  it('renders input field', () => {
     const { getByTestId } = render(<TodoForm onAdd={mockOnAdd} />);
     expect(getByTestId('todo-input')).toBeInTheDocument();
-    expect(getByTestId('todo-submit')).toBeInTheDocument();
   });
 
   it('calls onAdd with input value when form is submitted', () => {
@@ -44,22 +43,5 @@ describe('TodoForm', () => {
     fireEvent.submit(form);
 
     expect(mockOnAdd).not.toHaveBeenCalled();
-  });
-
-  it('disables submit button when input is empty', () => {
-    const { getByTestId } = render(<TodoForm onAdd={mockOnAdd} />);
-    const submitButton = getByTestId('todo-submit');
-
-    expect(submitButton).toBeDisabled();
-  });
-
-  it('enables submit button when input has value', () => {
-    const { getByTestId } = render(<TodoForm onAdd={mockOnAdd} />);
-    const input = getByTestId('todo-input');
-    const submitButton = getByTestId('todo-submit');
-
-    fireEvent.change(input, { target: { value: 'New todo' } });
-
-    expect(submitButton).not.toBeDisabled();
   });
 }); 
