@@ -33,6 +33,14 @@ describe('TodoItem', () => {
     expect(mockOnToggle).toHaveBeenCalledWith('1');
   });
 
+  it('calls onToggle when text is clicked', () => {
+    const { getByTestId } = render(
+      <TodoItem todo={mockTodo} onToggle={mockOnToggle} onDelete={mockOnDelete} />
+    );
+    fireEvent.click(getByTestId('todo-text'));
+    expect(mockOnToggle).toHaveBeenCalledWith('1');
+  });
+
   it('calls onDelete when delete button is clicked', () => {
     const { getByTestId } = render(
       <TodoItem todo={mockTodo} onToggle={mockOnToggle} onDelete={mockOnDelete} />

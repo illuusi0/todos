@@ -10,14 +10,22 @@ interface TodoItemProps {
 }
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
+  const handleToggle = () => onToggle(todo.id);
+
   return (
     <TodoItemContainer data-testid="todo-item">
       <Checkbox
         checked={todo.completed}
-        onChange={() => onToggle(todo.id)}
+        onChange={handleToggle}
         data-testid="todo-checkbox"
       />
-      <TodoText $completed={todo.completed}>{todo.text}</TodoText>
+      <TodoText 
+        $completed={todo.completed}
+        onClick={handleToggle}
+        data-testid="todo-text"
+      >
+        {todo.text}
+      </TodoText>
       <DeleteButton
         onClick={() => onDelete(todo.id)}
         data-testid="todo-delete-button"

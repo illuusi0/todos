@@ -19,6 +19,12 @@ export const TodoText = styled.span<{ $completed: boolean }>`
   text-decoration: ${props => props.$completed ? 'line-through' : 'none'};
   transition: color 0.2s;
   font-weight: 300;
+  cursor: pointer;
+  user-select: none;
+  
+  &:hover {
+    color: ${props => props.$completed ? '#c0c0c0' : '#2d2d2d'};
+  }
 `;
 
 export const DeleteButton = styled(Button)`
