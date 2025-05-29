@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# Todo Приложение - Тестовое задание Mindbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это Todo приложение, разработанное в качестве тестового задания на позицию Frontend Middle Developer в Mindbox.
 
-Currently, two official plugins are available:
+## Функциональность
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Добавление новых задач через поле ввода
+- Просмотр списка всех задач
+- Фильтрация задач по статусу:
+  - Все задачи
+  - Активные (невыполненные) задачи
+  - Выполненные задачи
+- Отметка задач как выполненных/невыполненных
+- Удаление задач
+- Очистка всех выполненных задач
 
-## Expanding the ESLint configuration
+## Технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18
+- TypeScript
+- Styled Components
+- Jest & React Testing Library
+- Vite
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Структура проекта
+
+```
+src/
+├── components/          # React компоненты
+│   ├── TodoForm/       # Форма ввода новых задач
+│   ├── TodoList/       # Список задач
+│   ├── TodoItem/       # Отдельная задача
+│   ├── TodoFilter/     # Опции фильтрации
+│   └── TodoCounter/    # Счетчик оставшихся задач
+├── shared/
+│   └── ui/            # Общие UI компоненты
+├── types/             # TypeScript типы
+└── __tests__/        # Тесты
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Запуск проекта
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+1. Клонировать репозиторий
+```bash
+git clone https://github.com/illuusi0/todos.git
 ```
+
+2. Установить зависимости и запустить проект
+```bash
+npm run start
+```
+
+## Дополнительные команды
+
+```bash
+# Запуск тестов
+npm test
+
+# Сборка проекта
+npm run build
+
+# Запуск линтера
+npm run lint
+```
+
+## Тестирование
+
+Приложение полностью покрыто тестами с использованием Jest и React Testing Library. Тесты находятся в директории `src/__tests__`.
+
+## Стилизация
+
+В приложении используется Styled Components для стилизации, с современным и чистым дизайном. Все styled-компоненты организованы в отдельных файлах `styles.ts` внутри соответствующих директорий компонентов.
